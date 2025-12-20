@@ -1,5 +1,5 @@
 // =========================================
-// DADOS DOS PRODUTOS - COM IMAGENS CORRIGIDAS
+// DADOS DOS PRODUTOS - COM IMAGENS
 // =========================================
 const produtos = [
     // Smash Burgers Artesanal (1-7)
@@ -24,32 +24,33 @@ const produtos = [
     { id: 15, nome: "X-Bacon", descricao: "Pão, hamburguer de boi 90g, presunto, mussarela, ovo, bacon, barbecue, maionese e ketchup.", preco: 23.00, imagem: "x-bacon.jpeg", categoria: "tradicional" },
     { id: 16, nome: "X-Tudão", descricao: "Pão, duas hambúrguer de boi 90g, presunto, mussarela, ovo, bacon, calabresa, alface, tomate, barbecue, maionese e ketchup.", preco: 28.00, imagem: "x-tudo.jpeg", categoria: "tradicional" },
 
-    // Combos e Porções (17-23) - CORRIGIDAS AS IMAGENS
+    // Combos e Porções (17-23)
     { id: 17, nome: "Combo Casal", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 90.00, imagem: "combo-casal.jpeg", categoria: "combos" },
-    { id: 18, nome: "Combo Casal com Frango", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 110.00, imagem: "combo-casal-frango.jpeg", categoria: "combos" }, // CORRIGIDO
+    { id: 18, nome: "Combo Casal com Frango", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 110.00, imagem: "combo-casal-frango.jpeg", categoria: "combos" },
     { id: 19, nome: "Combo 1 Artesanal", descricao: "2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 77.00, imagem: "combo-1.jpeg", categoria: "combos" },
     { id: 20, nome: "Combo 2 Artesanal", descricao: "2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 97.00, imagem: "combo-2.jpeg", categoria: "combos" },
     { id: 21, nome: "Combo 3 Artesanal", descricao: "4 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 139.00, imagem: "combo-3.jpeg", categoria: "combos" },
     { id: 22, nome: "Porção de Batata", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 40.00, imagem: "monte-sua-batata.jpeg", categoria: "combos" },
-    { id: 23, nome: "Porção de Batata com Frango", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon e calabresa + frango empanado.", preco: 60.00, imagem: "porcao-batata-frango.jpeg", categoria: "combos" }, // CORRIGIDO
+    { id: 23, nome: "Porção de Batata com Frango", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon e calabresa + frango empanado.", preco: 60.00, imagem: "porcao-batata-frango.jpeg", categoria: "combos" },
 
-    // Bebidas (24-29) - CORRIGIDAS AS IMAGENS
+    // Bebidas (24-29) - COM GUARANÁ 2L
     { id: 24, nome: "Mate Couro 1L", descricao: "Sabor guaraná 1 litro.", preco: 7.00, imagem: "mate-couro.jpeg", categoria: "bebidas" },
-    { id: 26, nome: "Coca-Cola 2L", descricao: "Coca-Cola 2 litros.", preco: 15.00, imagem: "coca-cola-2l.jpeg", categoria: "bebidas" }, 
+    { id: 25, nome: "Guaraná Antártica 2L", descricao: "Guaraná Antártica 2 litros.", preco: 12.00, imagem: "guarana-2l.jpeg", categoria: "bebidas" }, // ← GUARANÁ 2L ADICIONADO
+    { id: 26, nome: "Coca-Cola 2L", descricao: "Coca-Cola 2 litros.", preco: 15.00, imagem: "coca-cola-2l.jpeg", categoria: "bebidas" },
     { id: 27, nome: "Coca-Cola Lata", descricao: "Coca-Cola lata 350ml.", preco: 5.00, imagem: "coca-lata.jpeg", categoria: "bebidas" },
-    { id: 28, nome: "Guaraná Antártica Lata", descricao: "Guaraná Antártica lata 350ml.", preco: 5.00, imagem: "guarana-lata.jpeg", categoria: "bebidas" }, // ← ESTÁ AQUI?
+    { id: 28, nome: "Guaraná Antártica Lata", descricao: "Guaraná Antártica lata 350ml.", preco: 5.00, imagem: "guarana-lata.jpeg", categoria: "bebidas" },
     { id: 29, nome: "Água Mineral", descricao: "Água mineral sem gás.", preco: 3.00, imagem: "agua.jpeg", categoria: "bebidas" }
 ];
+
 // =========================================
-// FILTRO: Mostra APENAS produtos que funcionam
+// FILTRO: Produtos que funcionam
 // =========================================
-// Lista de IDs que FUNCIONAM (com imagens válidas) - TODOS AGORA
 const produtosComImagemValida = [
     1, 2, 3, 4, 5, 6, 7,     // Smash Burgers (todos)
     8, 9, 10, 11, 12,        // GB Artesanal (todos)
     13, 14, 15, 16,          // Tradicional (todos)
-    17, 18, 19, 20, 21, 22,  // Combos (AGORA com 18 e 23 se tiverem imagem)
-    24, 25, 26, 27, 28, 29   // Bebidas (AGORA com 26 e 27)
+    17, 18, 19, 20, 21, 22, 23, // Combos
+    24, 25, 26, 27, 28, 29   // Bebidas (COM 25 - GUARANÁ 2L)
 ];
 
 // Array filtrado para exibição
@@ -69,11 +70,14 @@ let formaPagamento = "pix";
 // =========================================
 document.addEventListener('DOMContentLoaded', function() {
     console.log("✅ GOOD BURGUER - Site carregado!");
+    console.log(`📊 Total de produtos: ${produtosParaExibir.length}`);
+    
     carregarCardapio();
     atualizarContadorCarrinho();
     
     // Menu mobile
     const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
     const menu = document.getElementById('main-menu');
     
     if (menuToggle && menu) {
@@ -81,6 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.classList.toggle('active');
             document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
         });
+        
+        if (menuClose) {
+            menuClose.addEventListener('click', function() {
+                menu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        }
         
         // Fechar menu ao clicar em link
         menu.querySelectorAll('a').forEach(link => {
@@ -96,6 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnPedido) {
         btnPedido.addEventListener('click', abrirCarrinho);
     }
+    
+    // Fechar modais com ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            fecharModal('modal-produto');
+            fecharModal('modal-carrinho');
+        }
+    });
 });
 
 // =========================================
@@ -107,12 +126,11 @@ function carregarCardapio() {
     
     grid.innerHTML = '';
     
-    // Usa produtosParaExibir (array filtrado)
     produtosParaExibir.forEach(produto => {
         const card = document.createElement('div');
         card.className = 'card-hamburguer';
         card.setAttribute('data-categoria', produto.categoria);
-        card.setAttribute('data-id', produto.id); // Adiciona data-id para referência
+        card.setAttribute('data-id', produto.id);
         
         // Fallback para imagem
         const imgFallback = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMkQyRDJEIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiBmaWxsPSIjRkZGIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7imYLvuI/wn5G9PC90ZXh0Pgo8L3N2Zz4K';
@@ -127,12 +145,16 @@ function carregarCardapio() {
                 <h3 class="card-nome">${produto.nome}</h3>
                 <p class="card-descricao">${produto.descricao}</p>
                 <div class="card-preco">R$ ${produto.preco.toFixed(2)}</div>
-                <button class="btn-pedir" onclick="abrirModal(${produto.id})">Fazer Pedido</button>
+                <button class="btn-pedir" onclick="abrirModal(${produto.id})">
+                    <i class="fas fa-cart-plus"></i> Fazer Pedido
+                </button>
             </div>
         `;
         
         grid.appendChild(card);
     });
+    
+    console.log("✅ Cardápio carregado!");
 }
 
 function getCategoriaNome(categoria) {
@@ -158,8 +180,16 @@ function filtrarCategoria(categoria) {
     cards.forEach(card => {
         if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
             card.style.display = 'block';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 50);
         } else {
-            card.style.display = 'none';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
         }
     });
 }
@@ -168,18 +198,18 @@ function filtrarCategoria(categoria) {
 // FUNÇÕES DO MODAL
 // =========================================
 function abrirModal(idProduto) {
-    // Usa o array COMPLETO 'produtos' para encontrar o produto
     const produto = produtos.find(p => p.id === idProduto);
     if (!produto) {
-        alert('❌ Produto não encontrado!');
+        mostrarNotificacao('❌ Produto não encontrado!');
         return;
     }
 
+    // Atualizar informações do modal
     document.getElementById('modal-nome').textContent = produto.nome;
     document.getElementById('modal-descricao').textContent = produto.descricao;
     document.getElementById('modal-preco').textContent = `R$ ${produto.preco.toFixed(2)}`;
     
-    // Usar a imagem do produto ou fallback
+    // Configurar imagem
     const imgElement = document.getElementById('modal-imagem');
     const modalFallback = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMkQyRDJEIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmaWxsPSIjRkZGIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7imYLvuI/wn5G9PC90ZXh0Pgo8L3N2Zz4K';
     
@@ -216,6 +246,8 @@ function abrirModal(idProduto) {
     // Mostrar modal
     document.getElementById('modal-produto').style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    console.log(`📱 Modal aberto: ${produto.nome}`);
 }
 
 function fecharModal(modalId) {
@@ -254,6 +286,7 @@ function selecionarQueijo(elemento, tipo) {
     });
     elemento.classList.add('selecionado');
     queijoBatata = tipo;
+    console.log(`🧀 Queijo selecionado: ${tipo}`);
 }
 
 function atualizarContadorCaracteres() {
@@ -266,6 +299,7 @@ function atualizarContadorCaracteres() {
         textarea.value = observacao.substring(0, 200);
         contador.textContent = '200';
         observacao = textarea.value;
+        mostrarNotificacao('⚠️ Limite de 200 caracteres atingido!');
     }
 }
 
@@ -278,6 +312,7 @@ function adicionarAoCarrinho() {
     
     if (!produto) {
         console.error("Produto não encontrado");
+        mostrarNotificacao('❌ Erro ao adicionar produto!');
         return;
     }
 
@@ -285,7 +320,7 @@ function adicionarAoCarrinho() {
     const produtosComBatata = [8, 9, 10, 11, 12, 17, 18, 19, 20, 21, 22, 23];
     
     if (produtosComBatata.includes(produtoId) && !queijoBatata) {
-        alert('⚠️ Por favor, escolha o tipo de queijo para a batata!');
+        mostrarNotificacao('⚠️ Escolha o tipo de queijo para a batata!');
         return;
     }
 
@@ -303,6 +338,7 @@ function adicionarAoCarrinho() {
     
     if (itemExistente) {
         itemExistente.quantidade += quantidadeAtual;
+        console.log(`📦 Atualizado: ${itemExistente.nome} (${itemExistente.quantidade}x)`);
     } else {
         carrinho.push({
             id: itemId,
@@ -314,6 +350,7 @@ function adicionarAoCarrinho() {
             observacao: observacao,
             imagem: produto.imagem
         });
+        console.log(`🛒 Adicionado: ${produto.nome} (${quantidadeAtual}x)`);
     }
 
     atualizarContadorCarrinho();
@@ -332,32 +369,18 @@ function mostrarNotificacao(mensagem) {
 
     const notificacao = document.createElement('div');
     notificacao.className = 'notificacao-flutuante';
-    notificacao.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #28a745;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 8px;
-        z-index: 10000;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        animation: slideIn 0.3s ease;
-        max-width: 300px;
-        font-size: 14px;
-    `;
     
     notificacao.innerHTML = `
         <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.2rem;">✅</span>
-            <span>${mensagem}</span>
+            <span style="font-size: 1.2rem;">${mensagem.includes('✅') ? '✅' : '⚠️'}</span>
+            <span>${mensagem.replace('✅ ', '').replace('⚠️ ', '')}</span>
         </div>
     `;
     
     document.body.appendChild(notificacao);
     
     setTimeout(() => {
-        notificacao.style.animation = 'slideOut 0.3s ease';
+        notificacao.style.animation = 'slideOutRight 0.3s ease';
         setTimeout(() => {
             if (notificacao.parentNode) {
                 notificacao.parentNode.removeChild(notificacao);
@@ -418,7 +441,9 @@ function abrirCarrinho() {
             </div>
             <div style="display: flex; align-items: center; gap: 15px;">
                 <span style="color: white; font-weight: bold; font-size: 16px;">R$ ${itemTotal.toFixed(2)}</span>
-                <button onclick="removerDoCarrinho(${index})" style="background: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 12px; min-height: 36px; min-width: 36px;">🗑️</button>
+                <button onclick="removerDoCarrinho(${index})" style="background: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 12px; min-height: 36px; min-width: 36px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-trash"></i>
+                </button>
             </div>
         `;
 
@@ -443,10 +468,13 @@ function abrirCarrinho() {
 
     document.getElementById('modal-carrinho').style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    console.log(`🛒 Carrinho aberto com ${carrinho.length} itens`);
 }
 
 function removerDoCarrinho(index) {
     if (confirm('Remover este item do carrinho?')) {
+        const itemRemovido = carrinho[index];
         carrinho.splice(index, 1);
         atualizarContadorCarrinho();
         
@@ -456,6 +484,8 @@ function removerDoCarrinho(index) {
             fecharModal('modal-carrinho');
             mostrarNotificacao('🛒 Carrinho esvaziado!');
         }
+        
+        console.log(`🗑️ Removido: ${itemRemovido.nome}`);
     }
 }
 
@@ -467,6 +497,7 @@ function selecionarFormaPagamento(tipo) {
     document.querySelectorAll('.opcao-pagamento input').forEach(input => {
         input.checked = input.value === tipo;
     });
+    console.log(`💳 Forma de pagamento selecionada: ${tipo}`);
 }
 
 function validarDadosEntrega() {
@@ -476,28 +507,35 @@ function validarDadosEntrega() {
     const cidade = document.getElementById('cidade').value.trim();
     
     if (!nome) {
-        alert('⚠️ Por favor, informe seu nome completo!');
+        mostrarNotificacao('⚠️ Por favor, informe seu nome completo!');
         return null;
     }
     
     if (!telefone) {
-        alert('⚠️ Por favor, informe seu telefone!');
+        mostrarNotificacao('⚠️ Por favor, informe seu telefone!');
+        return null;
+    }
+    
+    // Validar telefone
+    const telefoneLimpo = telefone.replace(/\D/g, '');
+    if (telefoneLimpo.length < 10) {
+        mostrarNotificacao('⚠️ Telefone inválido! Informe um número com DDD.');
         return null;
     }
     
     if (!endereco) {
-        alert('⚠️ Por favor, informe seu endereço completo!');
+        mostrarNotificacao('⚠️ Por favor, informe seu endereço completo!');
         return null;
     }
     
     if (!cidade) {
-        alert('⚠️ Por favor, informe sua cidade!');
+        mostrarNotificacao('⚠️ Por favor, informe sua cidade!');
         return null;
     }
     
     return { 
         nome, 
-        telefone, 
+        telefone: telefoneLimpo, 
         endereco, 
         cidade 
     };
@@ -517,18 +555,19 @@ function finalizarComPix() {
     const numeroPedido = 'GB' + Date.now().toString().slice(-6);
     
     // Montar mensagem para WhatsApp
-    let mensagem = `*🍔 NOVO PEDIDO - GOOD BURGUER 🍔*\n\n`;
+    let mensagem = `*🍔 NOVO PEDIDO - GOOD BURGER 🍔*\n\n`;
     mensagem += `*📋 Nº do Pedido:* ${numeroPedido}\n`;
     mensagem += `*💰 Valor Total:* R$ ${total.toFixed(2)}\n`;
-    mensagem += `*🛵 Taxa de Entrega:* R$ 5,00\n\n`;
+    mensagem += `*🛵 Taxa de Entrega:* R$ 5,00\n`;
+    mensagem += `*💳 Forma de Pagamento:* PIX\n\n`;
     
-    mensagem += `*👤 Dados do Cliente:*\n`;
+    mensagem += `*👤 DADOS DO CLIENTE:*\n`;
     mensagem += `• Nome: ${dados.nome}\n`;
     mensagem += `• Telefone: ${dados.telefone}\n`;
     mensagem += `• Endereço: ${dados.endereco}\n`;
     mensagem += `• Cidade: ${dados.cidade}\n\n`;
     
-    mensagem += `*🛒 Itens do Pedido:*\n`;
+    mensagem += `*🛒 ITENS DO PEDIDO:*\n`;
     carrinho.forEach((item, index) => {
         mensagem += `${index + 1}. ${item.quantidade}x ${item.nome} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
         if (item.queijoBatata) {
@@ -540,20 +579,20 @@ function finalizarComPix() {
         mensagem += `\n`;
     });
     
-    mensagem += `*💳 Forma de Pagamento:* PIX\n`;
-    mensagem += `*🔑 Chave PIX:* (31) 99999-9999\n`;
-    mensagem += `⚠️ *Enviar comprovante para este mesmo número*\n\n`;
-    
-    mensagem += `*📋 Resumo do Pedido:*\n`;
+    mensagem += `*📋 RESUMO DO PEDIDO:*\n`;
     const subtotal = total - 5.00;
     mensagem += `Subtotal: R$ ${subtotal.toFixed(2)}\n`;
     mensagem += `Taxa de Entrega: R$ 5,00\n`;
-    mensagem += `*Total: R$ ${total.toFixed(2)}*\n\n`;
+    mensagem += `*TOTAL: R$ ${total.toFixed(2)}*\n\n`;
+    
+    mensagem += `*🔑 CHAVE PIX:* (31) 99999-9999\n`;
+    mensagem += `⚠️ *ENVIAR COMPROVANTE PARA ESTE MESMO NÚMERO*\n\n`;
     
     mensagem += `🕒 *Horário do Pedido:* ${new Date().toLocaleString('pt-BR')}\n`;
-    mensagem += `✅ *Pedido confirmado!*`;
+    mensagem += `✅ *Pedido confirmado!*\n`;
+    mensagem += `⏱️ *Tempo estimado:* 40-60 minutos`;
     
-    // **SUBSTITUA ESTE NÚMERO PELO SEU WHATSAPP**
+    // **SUBSTITUA ESTE NÚMERO PELO SEU WHATSAPP REAL**
     const numeroWhatsApp = "5531999999999"; // SUBSTITUA AQUI
     
     const mensagemCodificada = encodeURIComponent(mensagem);
@@ -565,13 +604,8 @@ function finalizarComPix() {
         atualizarContadorCarrinho();
         fecharModal('modal-carrinho');
         
-        // Limpar formulário
-        document.getElementById('nome-cliente').value = '';
-        document.getElementById('telefone').value = '';
-        document.getElementById('endereco').value = '';
-        document.getElementById('cidade').value = '';
-        
         mostrarNotificacao('🎉 Pedido enviado com sucesso! Obrigado!');
+        console.log(`📤 Pedido ${numeroPedido} enviado para WhatsApp`);
     }, 1000);
 }
 
@@ -579,23 +613,13 @@ function finalizarPedidoWhatsApp() {
     finalizarComPix();
 }
 
-// Adicionar CSS para animações
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideOut {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-    }
-    
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-`;
-
-document.head.appendChild(style);
+// =========================================
+// UTILITÁRIOS
+// =========================================
+console.log(`
+╔══════════════════════════════════════╗
+║    GOOD BURGER - SISTEMA ATIVADO     ║
+║    Produtos carregados: ${produtosParaExibir.length}           ║
+║    Guaraná 2L ID: 25 ✅              ║
+╚══════════════════════════════════════╝
+`);
