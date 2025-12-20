@@ -35,7 +35,6 @@ const produtos = [
 
     // Bebidas (24-29) - CORRIGIDAS AS IMAGENS
     { id: 24, nome: "Mate Couro 1L", descricao: "Sabor guaraná 1 litro.", preco: 7.00, imagem: "mate-couro.jpeg", categoria: "bebidas" },
-    { id: 25, nome: "Guaraná 2L", descricao: "Guaraná Antártica 2 litros.", preco: 12.00, imagem: "guarana-2l.jpeg", categoria: "bebidas" },
     { id: 26, nome: "Coca-Cola 2L", descricao: "Coca-Cola 2 litros.", preco: 15.00, imagem: "coca-cola-2l.jpeg", categoria: "bebidas" }, 
     { id: 27, nome: "Coca-Cola Lata", descricao: "Coca-Cola lata 350ml.", preco: 5.00, imagem: "coca-lata.jpeg", categoria: "bebidas" },
     { id: 28, nome: "Guaraná Antártica Lata", descricao: "Guaraná Antártica lata 350ml.", preco: 5.00, imagem: "guarana-lata.jpeg", categoria: "bebidas" }, // ← ESTÁ AQUI?
@@ -598,4 +597,5 @@ style.textContent = `
         50% { transform: scale(1.1); }
     }
 `;
+
 document.head.appendChild(style);
