@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- HEADER FIXO -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -16,10 +16,14 @@
                     <div class="logo-area">
                         <img src="logo.jpeg" alt="Good Burger" class="logo-img">
                     </div>
-                    <h1>GOOD BURGER</h1>
+                    <div class="logo-text">
+                        <h1>GOOD BURGER</h1>
+                        <p class="slogan">Mais que uma mordida, é uma história</p>
+                    </div>
                 </div>
                 <button class="menu-toggle" id="menu-toggle">
                     <i class="fas fa-bars"></i>
+                    <span id="contador-carrinho" class="contador-carrinho">0</span>
                 </button>
             </div>
         </div>
@@ -27,21 +31,23 @@
 
     <!-- MENU MOBILE -->
     <nav class="menu" id="main-menu">
-        <button class="menu-toggle" id="menu-close" style="position: absolute; top: 20px; right: 20px;">
+        <button class="menu-close" id="menu-close">
             <i class="fas fa-times"></i>
         </button>
         <ul>
             <li><a href="#hero">Início</a></li>
             <li><a href="#cardapio">Cardápio</a></li>
             <li><a href="#sobre">Sobre</a></li>
-            <li><button class="btn-pedido" onclick="abrirCarrinho()">
-                <i class="fas fa-shopping-cart"></i> Ver Carrinho
-                <span id="contador-carrinho" class="contador-carrinho">0</span>
-            </button></li>
+            <li>
+                <button class="btn-pedido" onclick="abrirCarrinho()">
+                    <i class="fas fa-shopping-cart"></i> Ver Carrinho
+                    <span id="contador-carrinho-menu" class="contador-carrinho">0</span>
+                </button>
+            </li>
         </ul>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-container">
@@ -85,7 +91,7 @@
                 <img src="sobre.jpeg" alt="Sobre a Good Burger" class="sobre-img">
                 
                 <div class="destaque-missao">
-                    <h2 style="color: white; margin-bottom: 15px;">NOSSA MISSÃO</h2>
+                    <h2>NOSSA MISSÃO</h2>
                     <p class="sobre-text">Criar os melhores hambúrgueres artesanais com ingredientes frescos e de qualidade, proporcionando uma experiência única a cada mordida.</p>
                 </div>
                 
@@ -133,48 +139,52 @@
         </div>
     </footer>
 
-    <!-- MODAL PRODUTO -->
+    <!-- MODAL PRODUTO (COM ESCOLHA DE QUEIJO) -->
     <div id="modal-produto" class="modal" onclick="fecharModalFora(event, 'modal-produto')">
         <div class="modal-content">
             <button class="close-modal" onclick="fecharModal('modal-produto')">&times;</button>
             
-            <img id="modal-imagem" src="" alt="Produto" class="modal-imagem">
-            
-            <h3 id="modal-nome" class="modal-nome"></h3>
-            <p id="modal-descricao" class="modal-descricao"></p>
-            <div id="modal-preco" class="modal-preco"></div>
-            
-            <!-- SELEÇÃO DE QUEIJO PARA BATATA -->
-            <div id="selecao-queijo-batata" class="selecao-queijo-batata" style="display: none;">
-                <h4 class="selecao-titulo">Escolha o queijo para a batata:</h4>
-                <div class="botoes-queijo">
-                    <button class="btn-queijo" onclick="selecionarQueijo(this, 'Cheddar')">Cheddar</button>
-                    <button class="btn-queijo" onclick="selecionarQueijo(this, 'Catupiry')">Catupiry</button>
-                    <button class="btn-queijo" onclick="selecionarQueijo(this, 'Mussarela')">Mussarela</button>
+            <div class="modal-scroll-content">
+                <img id="modal-imagem" src="" alt="Produto" class="modal-imagem">
+                
+                <h3 id="modal-nome" class="modal-nome"></h3>
+                <p id="modal-descricao" class="modal-descricao"></p>
+                <div id="modal-preco" class="modal-preco"></div>
+                
+                <!-- SELEÇÃO DE QUEIJO PARA BATATA -->
+                <div id="selecao-queijo-batata" class="selecao-queijo-batata" style="display: none;">
+                    <h4 class="selecao-titulo">Escolha o queijo para a batata:</h4>
+                    <div class="botoes-queijo">
+                        <button class="btn-queijo" onclick="selecionarQueijo(this, 'Cheddar')">Cheddar</button>
+                        <button class="btn-queijo" onclick="selecionarQueijo(this, 'Catupiry')">Catupiry</button>
+                        <button class="btn-queijo" onclick="selecionarQueijo(this, 'Mussarela')">Mussarela</button>
+                    </div>
+                </div>
+                
+                <!-- QUANTIDADE -->
+                <div class="quantidade-container">
+                    <button class="btn-quantidade" onclick="decrementarQuantidade()">-</button>
+                    <span id="quantidade" class="quantidade">1</span>
+                    <button class="btn-quantidade" onclick="incrementarQuantidade()">+</button>
+                </div>
+                
+                <!-- OBSERVAÇÕES -->
+                <div class="observacao-container">
+                    <label class="observacao-label">
+                        Observações (opcional):
+                        <span id="contador-caracteres">0</span>/200
+                    </label>
+                    <textarea id="observacao-produto" class="input-observacao" 
+                              placeholder="Ex: Sem cebola, ponto da carne, etc..."
+                              oninput="atualizarContadorCaracteres()"></textarea>
                 </div>
             </div>
             
-            <!-- QUANTIDADE -->
-            <div class="quantidade-container">
-                <button class="btn-quantidade" onclick="decrementarQuantidade()">-</button>
-                <span id="quantidade" class="quantidade">1</span>
-                <button class="btn-quantidade" onclick="incrementarQuantidade()">+</button>
+            <div class="modal-footer">
+                <button id="btn-pedido-modal" class="btn-adicionar-pedido" onclick="adicionarAoCarrinho()">
+                    <i class="fas fa-cart-plus"></i> ADICIONAR AO CARRINHO
+                </button>
             </div>
-            
-            <!-- OBSERVAÇÕES -->
-            <div class="observacao-container">
-                <label class="observacao-label">
-                    Observações (opcional):
-                    <span id="contador-caracteres">0</span>/200
-                </label>
-                <textarea id="observacao-produto" class="input-observacao" 
-                          placeholder="Ex: Sem cebola, ponto da carne, etc..."
-                          oninput="atualizarContadorCaracteres()"></textarea>
-            </div>
-            
-            <button id="btn-pedido-modal" class="btn-adicionar-pedido" onclick="adicionarAoCarrinho()">
-                ADICIONAR AO CARRINHO
-            </button>
         </div>
     </div>
 
@@ -183,59 +193,61 @@
         <div class="modal-content">
             <button class="close-modal" onclick="fecharModal('modal-carrinho')">&times;</button>
             
-            <h2 style="color: white; margin-bottom: 20px;">🛒 SEU CARRINHO</h2>
+            <h2 class="modal-title"><i class="fas fa-shopping-cart"></i> SEU CARRINHO</h2>
             
-            <div id="itens-carrinho" class="itens-carrinho">
-                <!-- Itens serão inseridos aqui -->
-            </div>
-            
-            <!-- RESUMO DO PEDIDO -->
-            <div class="carrinho-total">
-                <div class="total-item">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">R$ 0.00</span>
+            <div class="modal-scroll-content">
+                <div id="itens-carrinho" class="itens-carrinho">
+                    <!-- Itens serão inseridos aqui -->
                 </div>
-                <div class="total-item">
-                    <span>Taxa de Entrega:</span>
-                    <span id="taxa-entrega">R$ 5.00</span>
-                </div>
-                <div class="total-geral">
-                    <span>TOTAL:</span>
-                    <span id="total-geral">R$ 5.00</span>
-                </div>
-            </div>
-            
-            <!-- FORMULÁRIO DE ENTREGA -->
-            <div class="form-entrega">
-                <h3 style="color: white; margin-bottom: 15px;">📋 Dados para Entrega</h3>
                 
-                <input type="text" id="nome-cliente" class="form-input" placeholder="Nome completo*" required>
-                <input type="tel" id="telefone" class="form-input" placeholder="Telefone/WhatsApp*" required>
-                <input type="text" id="endereco" class="form-input" placeholder="Endereço completo*" required>
-                <input type="text" id="cidade" class="form-input" value="Nova Lima" readonly>
-            </div>
-            
-            <!-- FORMA DE PAGAMENTO -->
-            <div class="forma-pagamento">
-                <h3 style="color: white; margin-bottom: 15px;">💳 Forma de Pagamento</h3>
-                <div class="opcoes-pagamento">
-                    <label class="opcao-pagamento" onclick="selecionarFormaPagamento('pix')">
-                        <input type="radio" name="pagamento" value="pix" checked>
-                        <span>PIX</span>
-                    </label>
-                    <label class="opcao-pagamento" onclick="selecionarFormaPagamento('dinheiro')">
-                        <input type="radio" name="pagamento" value="dinheiro">
-                        <span>Dinheiro na Entrega</span>
-                    </label>
-                    <label class="opcao-pagamento" onclick="selecionarFormaPagamento('cartao')">
-                        <input type="radio" name="pagamento" value="cartao">
-                        <span>Cartão na Entrega</span>
-                    </label>
+                <!-- RESUMO DO PEDIDO -->
+                <div class="carrinho-total">
+                    <div class="total-item">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0.00</span>
+                    </div>
+                    <div class="total-item">
+                        <span>Taxa de Entrega:</span>
+                        <span id="taxa-entrega">R$ 5.00</span>
+                    </div>
+                    <div class="total-geral">
+                        <span>TOTAL:</span>
+                        <span id="total-geral">R$ 5.00</span>
+                    </div>
+                </div>
+                
+                <!-- FORMULÁRIO DE ENTREGA -->
+                <div class="form-entrega">
+                    <h3><i class="fas fa-user"></i> Dados para Entrega</h3>
+                    
+                    <input type="text" id="nome-cliente" class="form-input" placeholder="Nome completo*" required>
+                    <input type="tel" id="telefone" class="form-input" placeholder="Telefone/WhatsApp*" required>
+                    <input type="text" id="endereco" class="form-input" placeholder="Endereço completo*" required>
+                    <input type="text" id="cidade" class="form-input" value="Nova Lima" readonly>
+                </div>
+                
+                <!-- FORMA DE PAGAMENTO -->
+                <div class="forma-pagamento">
+                    <h3><i class="fas fa-credit-card"></i> Forma de Pagamento</h3>
+                    <div class="opcoes-pagamento">
+                        <label class="opcao-pagamento" onclick="selecionarFormaPagamento('pix')">
+                            <input type="radio" name="pagamento" value="pix" checked>
+                            <span>PIX</span>
+                        </label>
+                        <label class="opcao-pagamento" onclick="selecionarFormaPagamento('dinheiro')">
+                            <input type="radio" name="pagamento" value="dinheiro">
+                            <span>Dinheiro na Entrega</span>
+                        </label>
+                        <label class="opcao-pagamento" onclick="selecionarFormaPagamento('cartao')">
+                            <input type="radio" name="pagamento" value="cartao">
+                            <span>Cartão na Entrega</span>
+                        </label>
+                    </div>
                 </div>
             </div>
             
             <!-- BOTÕES FINALIZAÇÃO -->
-            <div class="botoes-finalizacao">
+            <div class="modal-footer">
                 <button class="btn-finalizar btn-pix" onclick="finalizarComPix()">
                     <i class="fas fa-qrcode"></i> FINALIZAR COM PIX
                 </button>
@@ -250,3 +262,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
