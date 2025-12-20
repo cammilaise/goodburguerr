@@ -1,5 +1,6 @@
 /* =========================================
-   CSS APENAS PARA CELULAR - IMAGENS NORMALS
+   CSS APENAS PARA CELULAR - GOOD BURGER
+   CORRIGIDO: HEADER + MODAL + RESPONSIVO
 ========================================= */
 
 /* RESET */
@@ -16,12 +17,15 @@ html, body {
     color: white;
 }
 
+/* CONTAINER */
 .container {
     width: 100%;
     padding: 0 15px;
 }
 
-/* HEADER */
+/* =========================================
+   HEADER FIXO (CORRIGIDO)
+========================================= */
 .header {
     background: #000;
     padding: 15px 0;
@@ -65,7 +69,6 @@ html, body {
 
 /* MENU MOBILE */
 .menu-toggle {
-    display: block;
     background: none;
     border: none;
     color: white;
@@ -81,7 +84,7 @@ html, body {
     width: 100%;
     height: 100vh;
     background: #000;
-    padding: 80px 20px;
+    padding: 90px 20px;
 }
 
 .menu.active {
@@ -102,21 +105,13 @@ html, body {
     text-decoration: none;
 }
 
-.btn-pedido {
-    background: white;
-    color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* HERO */
+/* =========================================
+   HERO (CORRIGIDO)
+========================================= */
 .hero {
     background: #000;
-    padding: 100px 15px 50px;
-    min-height: 100vh;
+    padding: 130px 15px 50px; /* compensação do header */
+    min-height: calc(100vh - 70px);
 }
 
 .hero-container {
@@ -124,13 +119,14 @@ html, body {
 }
 
 .hero-title {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
 }
 
 .hero-subtitle {
     color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.4;
     margin-bottom: 30px;
 }
 
@@ -142,10 +138,10 @@ html, body {
 }
 
 .btn {
-    padding: 15px 25px;
+    padding: 12px 20px;
     border-radius: 25px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     border: 2px solid white;
     text-decoration: none;
@@ -170,33 +166,11 @@ html, body {
     margin: 0 auto;
 }
 
-
-/* CARDÁPIO */
+/* =========================================
+   CARDÁPIO
+========================================= */
 .cardapio {
-    background: #000;
     padding: 50px 15px;
-}
-
-.filtros-cardapio {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.filtro-btn {
-    padding: 10px 15px;
-    border: 2px solid white;
-    background: #000;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.filtro-btn.active {
-    background: white;
-    color: black;
 }
 
 .grid-cardapio {
@@ -210,10 +184,10 @@ html, body {
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid #333;
+    animation: fadeIn 0.5s ease;
 }
 
 .card-imagem-container {
-    width: 100%;
     height: 180px;
 }
 
@@ -227,19 +201,7 @@ html, body {
     padding: 20px;
 }
 
-.card-categoria {
-    background: white;
-    color: black;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
 .card-nome {
-    color: white;
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
@@ -250,7 +212,6 @@ html, body {
 }
 
 .card-preco {
-    color: white;
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 15px;
@@ -261,121 +222,35 @@ html, body {
     padding: 12px;
     background: white;
     color: black;
-    border: none;
     border-radius: 8px;
     font-weight: bold;
-    cursor: pointer;
+    border: none;
 }
 
-/* SOBRE */
-.sobre {
-    background: #000;
-    padding: 50px 15px;
-    border-top: 3px solid white;
-}
-
-.sobre-container {
-    text-align: center;
-}
-
-.sobre-img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 15px;
-    border: 2px solid white;
-    margin-bottom: 30px;
-}
-
-.sobre-text {
-    color: #ccc;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.sobre-text strong {
-    color: white;
-}
-
-.destaque-missao {
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    border-left: 3px solid white;
-}
-
-.btn-sobre {
-    display: inline-block;
-    background: white;
-    color: black;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* FOOTER */
-.footer {
-    background: #000;
-    padding: 50px 15px 20px;
-    border-top: 3px solid red;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.footer-section h3 {
-    color: white;
-    margin-bottom: 15px;
-}
-
-.footer-section p {
-    color: #ccc;
-    margin-bottom: 10px;
-}
-
-.social-icon {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.footer-bottom {
-    text-align: center;
-    color: #888;
-    padding-top: 20px;
-    border-top: 1px solid #333;
-}
-
-/* MODAIS */
+/* =========================================
+   MODAL PRODUTO (ESCOLHA DO QUEIJO)
+========================================= */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0,0,0,0.9);
     z-index: 1001;
 }
 
 .modal-content {
     background: #1a1a1a;
-    margin: 20px;
+    margin: 15px;
     padding: 20px;
     border-radius: 15px;
     border: 2px solid white;
+    max-height: 90vh;          /* 🔥 CORREÇÃO */
+    overflow-y: auto;          /* 🔥 CORREÇÃO */
 }
 
 .close-modal {
-    color: white;
-    font-size: 30px;
     float: right;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -385,47 +260,6 @@ html, body {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 15px;
-}
-
-.modal-nome {
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.modal-descricao {
-    color: #ccc;
-    margin-bottom: 15px;
-}
-
-.modal-preco {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.quantidade-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.btn-quantidade {
-    background: white;
-    color: black;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.quantidade {
-    color: white;
-    font-size: 1.3rem;
 }
 
 .selecao-queijo-batata {
@@ -438,197 +272,64 @@ html, body {
 }
 
 .btn-queijo {
+    flex: 1;
     padding: 10px;
     background: #333;
     color: white;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    flex: 1;
+    border: none;
 }
 
 .btn-queijo.selecionado {
     background: red;
 }
 
-.input-observacao {
-    width: 100%;
-    padding: 10px;
-    background: #000;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    min-height: 80px;
-}
-
+/* BOTÃO SEMPRE ACESSÍVEL */
 .btn-adicionar-pedido {
     width: 100%;
     padding: 15px;
     background: white;
     color: black;
-    border: none;
     border-radius: 10px;
     font-weight: bold;
-    cursor: pointer;
+    position: sticky;
+    bottom: 0;
+    margin-top: 15px;
 }
 
-/* CARRINHO */
+/* =========================================
+   CARRINHO
+========================================= */
 .carrinho-modal .modal-content {
     max-height: 90vh;
     overflow-y: auto;
 }
 
-.itens-carrinho {
-    margin: 20px 0;
-}
-
-.item-carrinho {
-    background: #2d2d2d;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.carrinho-total {
-    background: #2d2d2d;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.total-item {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    color: #ccc;
-}
-
-.total-geral {
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-top: 2px solid white;
-    padding-top: 10px;
-    margin-top: 10px;
-}
-
-.form-entrega {
-    background: #2d2d2d;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.form-input {
-    width: 100%;
-    padding: 12px;
-    background: #000;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.forma-pagamento {
-    margin: 20px 0;
-}
-
-.opcoes-pagamento {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.opcao-pagamento {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background: #333;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.botoes-finalizacao {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.btn-finalizar {
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-pix {
-    background: green;
-    color: white;
-}
-
-.btn-whatsapp {
-    background: #25D366;
-    color: white;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .filtros-cardapio {
-        overflow-x: auto;
-        padding-bottom: 10px;
-    }
-    
-    .filtro-btn {
-        white-space: nowrap;
-        font-size: 0.9rem;
-    }
-}
-
-/* ACESSIBILIDADE */
-button, .btn, .btn-pedir, .btn-promocao {
-    min-height: 44px;
-    min-width: 44px;
-}
-
-/* ANIMAÇÕES */
+/* =========================================
+   ANIMAÇÃO
+========================================= */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-.card-hamburguer {
-    animation: fadeIn 0.5s ease;
+/* =========================================
+   ACESSIBILIDADE
+========================================= */
+button, .btn {
+    min-height: 44px;
+    min-width: 44px;
 }
 
-/* SCROLLBAR */
+/* =========================================
+   SCROLL
+========================================= */
 ::-webkit-scrollbar {
     width: 5px;
 }
-
-::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
 ::-webkit-scrollbar-thumb {
     background: red;
     border-radius: 3px;
-
 }
+
+
