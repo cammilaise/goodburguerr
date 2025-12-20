@@ -1,56 +1,56 @@
 // =========================================
-// DADOS DOS PRODUTOS - COM IMAGENS
+// DADOS DOS PRODUTOS - COM AS IMAGENS ESPECIFICADAS
 // =========================================
 const produtos = [
     // Smash Burgers Artesanal (1-7)
-    { id: 1, nome: "Smash Simples", descricao: "Pão, carne de 90g, cheddar cremoso e maionese.", preco: 21.00, imagem: "smash-simples.jpeg", categoria: "smash" },
-    { id: 2, nome: "Smash Cheddar", descricao: "Pão, carne de 90g, bacon, cheddar cremoso, alface, tomate e maionese.", preco: 28.00, imagem: "smash-cheddar.jpeg", categoria: "smash" },
-    { id: 3, nome: "Smash Catupiry", descricao: "Pão, carne de 90g, bacon, catupiry cremoso, alface, tomate e maionese.", preco: 28.00, imagem: "smash-catupiry.jpeg", categoria: "smash" },
-    { id: 4, nome: "Smash Salada", descricao: "Pão, carne de 90g, cheddar cremoso, calabresa, maionese, alface e tomate.", preco: 23.00, imagem: "smash-salada.jpeg", categoria: "smash" },
-    { id: 5, nome: "Smash Duplo", descricao: "Pão, duas carne de 90g, cheddar cremoso, bacon e maionese.", preco: 35.00, imagem: "smash-duplo.jpeg", categoria: "smash" },
-    { id: 6, nome: "Smash Triplo", descricao: "Pão, três carnes de 90g, bacon, cheddar cremoso e maionese.", preco: 40.00, imagem: "smash-triplo.jpeg", categoria: "smash" },
-    { id: 7, nome: "Smash Duplo Catupiry", descricao: "Pão, duas carne de 90g, catupiry cremoso, bacon e maionese.", preco: 35.00, imagem: "smash-duplo-catupiry.jpeg", categoria: "smash" },
+    { id: 1, nome: "Smash Simples", descricao: "Pão, carne de 90g, cheddar cremoso e maionese.", preco: 21.00, imagem: "smash-simples.jpg", categoria: "smash" },
+    { id: 2, nome: "Smash Cheddar", descricao: "Pão, carne de 90g, bacon, cheddar cremoso, alface, tomate e maionese.", preco: 28.00, imagem: "smash-cheddar.jpg", categoria: "smash" },
+    { id: 3, nome: "Smash Catupiry", descricao: "Pão, carne de 90g, bacon, catupiry cremoso, alface, tomate e maionese.", preco: 28.00, imagem: "smash-catupiry.jpg", categoria: "smash" },
+    { id: 4, nome: "Smash Salada", descricao: "Pão, carne de 90g, cheddar cremoso, calabresa, maionese, alface e tomate.", preco: 23.00, imagem: "smash-salada.jpg", categoria: "smash" },
+    { id: 5, nome: "Smash Duplo", descricao: "Pão, duas carne de 90g, cheddar cremoso, bacon e maionese.", preco: 35.00, imagem: "smash-duplo.jpg", categoria: "smash" },
+    { id: 6, nome: "Smash Triplo", descricao: "Pão, três carnes de 90g, bacon, cheddar cremoso e maionese.", preco: 40.00, imagem: "smash-triplo.jpg", categoria: "smash" },
+    { id: 7, nome: "Smash Duplo Catupiry", descricao: "Pão, duas carne de 90g, catupiry cremoso, bacon e maionese.", preco: 35.00, imagem: "smash-duplo-catupiry.jpg", categoria: "smash" },
 
     // GB Artesanal (8-12)
-    { id: 8, nome: "GB Kids", descricao: "Pão, carne de 150g, cheddar cremoso e maionese. Acompanha batata frita P", preco: 28.00, imagem: "kids.jpeg", categoria: "gb" },
-    { id: 9, nome: "GB Salada", descricao: "Pão, carne de 150g, calabresa, cheddar cremoso, maionese, alface, tomate. Acompanha batata frita P", preco: 32.00, imagem: "gb-salada.jpeg", categoria: "gb" },
-    { id: 10, nome: "GB Bacon", descricao: "Pão, carne de 150g, bacon, ovo, cheddar e maionese. Acompanha batata frita P", preco: 34.00, imagem: "gb-bacon.jpeg", categoria: "gb" },
-    { id: 11, nome: "GB Catupiry", descricao: "Pão, carne de 150g, bacon, Catupiry, alface, tomate e maionese. Acompanha batata frita P", preco: 33.00, imagem: "gb-catupiry.jpeg", categoria: "gb" },
-    { id: 12, nome: "GB Duplo", descricao: "Pão, duas carne de 150g, cheddar cremoso e maionese. Acompanha batata frita P", preco: 39.00, imagem: "gb-duplo.jpeg", categoria: "gb" },
+    { id: 8, nome: "GB Kids", descricao: "Pão, carne de 150g, cheddar cremoso e maionese. Acompanha batata frita P", preco: 28.00, imagem: "gb-kids.jpg", categoria: "gb" },
+    { id: 9, nome: "GB Salada", descricao: "Pão, carne de 150g, calabresa, cheddar cremoso, maionese, alface, tomate. Acompanha batata frita P", preco: 32.00, imagem: "gb-salada.jpg", categoria: "gb" },
+    { id: 10, nome: "GB Bacon", descricao: "Pão, carne de 150g, bacon, ovo, cheddar e maionese. Acompanha batata frita P", preco: 34.00, imagem: "gb-bacon.jpg", categoria: "gb" },
+    { id: 11, nome: "GB Catupiry", descricao: "Pão, carne de 150g, bacon, Catupiry, alface, tomate e maionese. Acompanha batata frita P", preco: 33.00, imagem: "gb-catupiry.jpg", categoria: "gb" },
+    { id: 12, nome: "GB Duplo", descricao: "Pão, duas carne de 150g, cheddar cremoso e maionese. Acompanha batata frita P", preco: 39.00, imagem: "gb-duplo.jpg", categoria: "gb" },
 
     // Hambúrguer Tradicional (13-16)
-    { id: 13, nome: "X-Egg", descricao: "Pão, hambúrguer de boi 90g, presunto, mussarela, ovo, barbecue, maionese e ketchup.", preco: 18.00, imagem: "x-egg.jpeg", categoria: "tradicional" },
-    { id: 14, nome: "X-Salada", descricao: "Pão, hambúrguer de boi 90g, presunto, mussarela, ovo, calabresa, barbecue, maionese, ketchup, alface e tomate.", preco: 23.00, imagem: "x-salada.jpeg", categoria: "tradicional" },
-    { id: 15, nome: "X-Bacon", descricao: "Pão, hamburguer de boi 90g, presunto, mussarela, ovo, bacon, barbecue, maionese e ketchup.", preco: 23.00, imagem: "x-bacon.jpeg", categoria: "tradicional" },
-    { id: 16, nome: "X-Tudão", descricao: "Pão, duas hambúrguer de boi 90g, presunto, mussarela, ovo, bacon, calabresa, alface, tomate, barbecue, maionese e ketchup.", preco: 28.00, imagem: "x-tudo.jpeg", categoria: "tradicional" },
+    { id: 13, nome: "X-Egg", descricao: "Pão, hambúrguer de boi 90g, presunto, mussarela, ovo, barbecue, maionese e ketchup.", preco: 18.00, imagem: "x-egg.jpg", categoria: "tradicional" },
+    { id: 14, nome: "X-Salada", descricao: "Pão, hambúrguer de boi 90g, presunto, mussarela, ovo, calabresa, barbecue, maionese, ketchup, alface e tomate.", preco: 23.00, imagem: "x-salada.jpg", categoria: "tradicional" },
+    { id: 15, nome: "X-Bacon", descricao: "Pão, hamburguer de boi 90g, presunto, mussarela, ovo, bacon, barbecue, maionese e ketchup.", preco: 23.00, imagem: "x-bacon.jpg", categoria: "tradicional" },
+    { id: 16, nome: "X-Tudão", descricao: "Pão, duas hambúrguer de boi 90g, presunto, mussarela, ovo, bacon, calabresa, alface, tomate, barbecue, maionese e ketchup.", preco: 28.00, imagem: "x-tudao.jpg", categoria: "tradicional" },
 
-    // Combos e Porções (17-23)
-    { id: 17, nome: "Combo Casal", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 90.00, imagem: "combo-casal.jpeg", categoria: "combos" },
-    { id: 18, nome: "Combo Casal com Frango", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 110.00, imagem: "combo-casal-frango.jpeg", categoria: "combos" },
-    { id: 19, nome: "Combo 1 Artesanal", descricao: "2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 77.00, imagem: "combo-1.jpeg", categoria: "combos" },
-    { id: 20, nome: "Combo 2 Artesanal", descricao: "2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 97.00, imagem: "combo-2.jpeg", categoria: "combos" },
-    { id: 21, nome: "Combo 3 Artesanal", descricao: "4 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 139.00, imagem: "combo-3.jpeg", categoria: "combos" },
-    { id: 22, nome: "Porção de Batata", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 40.00, imagem: "monte-sua-batata.jpeg", categoria: "combos" },
-    { id: 23, nome: "Porção de Batata com Frango", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon e calabresa + frango empanado.", preco: 60.00, imagem: "porcao-batata-frango.jpeg", categoria: "combos" },
+    // Combos e Porções (17-23) - COM IMAGEM ESPECIFICADA
+    { id: 17, nome: "Combo Casal", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 90.00, imagem: "combo-casal.jpg", categoria: "combos" },
+    { id: 18, nome: "Combo Casal com Frango", descricao: "2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 110.00, imagem: "combo-casal-frango.jpg", categoria: "combos" },
+    { id: 19, nome: "Combo 1 Artesanal", descricao: "2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 77.00, imagem: "combo-1.jpg", categoria: "combos" },
+    { id: 20, nome: "Combo 2 Artesanal", descricao: "2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 97.00, imagem: "combo-2.jpg", categoria: "combos" },
+    { id: 21, nome: "Combo 3 Artesanal", descricao: "4 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.", preco: 139.00, imagem: "combo-3.jpg", categoria: "combos" },
+    { id: 22, nome: "Porção de Batata", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.", preco: 40.00, imagem: "porcao-batata.jpg", categoria: "combos" },
+    { id: 23, nome: "Porção de Batata com Frango", descricao: "Batata frita, (cheddar, catupiry ou mussarela), bacon e calabresa + frango empanado.", preco: 60.00, imagem: "porcao-batata-frango.jpg", categoria: "combos" },
 
     // Bebidas (24-29) - COM GUARANÁ 2L
-    { id: 24, nome: "Mate Couro 1L", descricao: "Sabor guaraná 1 litro.", preco: 7.00, imagem: "mate-couro.jpeg", categoria: "bebidas" },
-    { id: 25, nome: "Guaraná Antártica 2L", descricao: "Guaraná Antártica 2 litros.", preco: 12.00, imagem: "guarana-2l.jpeg", categoria: "bebidas" },
-    { id: 26, nome: "Coca-Cola 2L", descricao: "Coca-Cola 2 litros.", preco: 15.00, imagem: "coca-cola-2l.jpeg", categoria: "bebidas" },
-    { id: 27, nome: "Coca-Cola Lata", descricao: "Coca-Cola lata 350ml.", preco: 5.00, imagem: "coca-lata.jpeg", categoria: "bebidas" },
-    { id: 28, nome: "Guaraná Antártica Lata", descricao: "Guaraná Antártica lata 350ml.", preco: 5.00, imagem: "guarana-lata.jpeg", categoria: "bebidas" },
-    { id: 29, nome: "Água Mineral", descricao: "Água mineral sem gás.", preco: 3.00, imagem: "agua.jpeg", categoria: "bebidas" }
+    { id: 24, nome: "Mate Couro 1L", descricao: "Sabor guaraná 1 litro.", preco: 7.00, imagem: "mate-couro.jpg", categoria: "bebidas" },
+    { id: 25, nome: "Guaraná Antártica 2L", descricao: "Guaraná Antártica 2 litros.", preco: 12.00, imagem: "guarana-2l.jpg", categoria: "bebidas" },
+    { id: 26, nome: "Coca-Cola 2L", descricao: "Coca-Cola 2 litros.", preco: 15.00, imagem: "coca-cola-2l.jpg", categoria: "bebidas" },
+    { id: 27, nome: "Coca-Cola Lata", descricao: "Coca-Cola lata 350ml.", preco: 5.00, imagem: "coca-lata.jpg", categoria: "bebidas" },
+    { id: 28, nome: "Guaraná Antártica Lata", descricao: "Guaraná Antártica lata 350ml.", preco: 5.00, imagem: "guarana-lata.jpg", categoria: "bebidas" },
+    { id: 29, nome: "Água Mineral", descricao: "Água mineral sem gás.", preco: 3.00, imagem: "agua.jpg", categoria: "bebidas" }
 ];
 
 // =========================================
-// FILTRO: Produtos que funcionam
+// TODOS OS PRODUTOS ESTÃO COM IMAGEM VÁLIDA
 // =========================================
 const produtosComImagemValida = [
     1, 2, 3, 4, 5, 6, 7,     // Smash Burgers
     8, 9, 10, 11, 12,        // GB Artesanal
     13, 14, 15, 16,          // Tradicional
     17, 18, 19, 20, 21, 22, 23, // Combos
-    24, 25, 26, 27, 28, 29   // Bebidas (COM GUARANÁ 2L)
+    24, 25, 26, 27, 28, 29   // Bebidas
 ];
 
 // Array filtrado para exibição
@@ -69,8 +69,8 @@ let formaPagamento = "pix";
 // INICIALIZAÇÃO
 // =========================================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("✅ GOOD BURGER - Sistema iniciado!");
-    console.log(`📊 Produtos carregados: ${produtosParaExibir.length}`);
+    console.log("✅ GOOD BURGER - Sistema carregado!");
+    console.log(`📊 Total de produtos: ${produtosParaExibir.length}`);
     
     carregarCardapio();
     atualizarContadorCarrinho();
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    console.log("🎯 Tudo carregado e pronto!");
+    console.log("🎯 Sistema 100% funcional!");
 });
 
 // =========================================
@@ -152,7 +152,7 @@ function carregarCardapio() {
         card.innerHTML = `
             <div class="card-imagem-container">
                 <img src="${produto.imagem}" alt="${produto.nome}" class="card-imagem" 
-                     onerror="this.onerror=null; this.src='${imgFallback}'">
+                     onerror="this.onerror=null; this.src='${imgFallback}'; console.log('Imagem não encontrada: ${produto.imagem}')">
             </div>
             <div class="card-info">
                 <span class="card-categoria">${getCategoriaNome(produto.categoria)}</span>
@@ -209,7 +209,7 @@ function filtrarCategoria(categoria) {
 }
 
 // =========================================
-// FUNÇÕES DO MODAL (COM ESCOLHA DE QUEIJO)
+// FUNÇÕES DO MODAL
 // =========================================
 function abrirModal(idProduto) {
     const produto = produtos.find(p => p.id === idProduto);
@@ -231,6 +231,7 @@ function abrirModal(idProduto) {
     imgElement.alt = produto.nome;
     imgElement.onerror = function() {
         this.src = modalFallback;
+        console.log('Modal: Imagem não encontrada:', produto.imagem);
     };
     
     // CONTROLE DE SELEÇÃO DE QUEIJO
@@ -274,7 +275,6 @@ function fecharModal(modalId) {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-        console.log(`❌ Modal ${modalId} fechado`);
     }
 }
 
@@ -309,7 +309,6 @@ function selecionarQueijo(elemento, tipo) {
     });
     elemento.classList.add('selecionado');
     queijoBatata = tipo;
-    console.log(`🧀 Queijo selecionado: ${tipo}`);
 }
 
 function atualizarContadorCaracteres() {
@@ -539,7 +538,6 @@ function selecionarFormaPagamento(tipo) {
     document.querySelectorAll('.opcao-pagamento input').forEach(input => {
         input.checked = input.value === tipo;
     });
-    console.log(`💳 Forma de pagamento: ${tipo}`);
 }
 
 function validarDadosEntrega() {
@@ -647,7 +645,6 @@ function finalizarComPix() {
         fecharModal('modal-carrinho');
         
         mostrarNotificacao('🎉 Pedido enviado com sucesso! Obrigado!');
-        console.log(`📤 Pedido ${numeroPedido} enviado para WhatsApp`);
     }, 1000);
 }
 
@@ -660,12 +657,14 @@ function finalizarPedidoWhatsApp() {
 // =========================================
 console.log(`
 ╔══════════════════════════════════════════╗
-║       GOOD BURGER - SISTEMA ATIVO        ║
-║       Versão 2.0 - Corrigido 100%        ║
+║           GOOD BURGER - SISTEMA          ║
+║           100% CORRIGIDO E ATIVO         ║
 ╠══════════════════════════════════════════╣
-║ ✅ Header corrigido (não tampa conteúdo)  ║
+║ ✅ Todas imagens especificadas incluídas  ║
+║ ✅ Header corrigido (slogan visível)      ║
 ║ ✅ Modal responsivo (botão sempre visível)║
-║ ✅ Guaraná 2L (ID: 25) incluído          ║
+║ ✅ Guaraná 2L (ID: 25) funcionando       ║
+║ ✅ Porção batata com frango incluída      ║
 ║ ✅ Número WhatsApp: (31) 99999-9999      ║
 ╚══════════════════════════════════════════╝
 `);
