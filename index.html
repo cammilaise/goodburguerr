@@ -1,81 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOOD BURGUER</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Burger</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="header">
-    <div class="container header-content">
-        <div class="logo">
-            <img src="logo2.png" class="logo-img">
-            <h1>GOOD BURGUER</h1>
-        </div>
-        <button class="menu-toggle">☰</button>
-        <button class="btn-pedido" onclick="abrirCarrinho()">
-            🛒 Carrinho (<span id="contador-carrinho">0</span>)
-        </button>
-    </div>
+  <h1>🍔 Good Burger</h1>
 </header>
 
 <section class="hero">
-    <h1 class="hero-title">Mais que uma Mordida, Uma História!</h1>
+  <h2 class="hero-title">Mais que uma mordida, é uma história!</h2>
 </section>
 
 <section class="cardapio">
-    <h2>🍹 Bebidas</h2>
 
-    <!-- GUARANÁ 2L -->
-    <div class="produto-card">
-        <img src="guarana-2l.jpeg" class="produto-img">
-        <h3>Guaraná Antártica 2L</h3>
-        <p>Guaraná Antártica 2 litros.</p>
-        <span>R$ 13,00</span>
-        <button onclick="abrirModalProduto(25)">Adicionar</button>
-    </div>
+  <div class="produto-card" data-categoria="bebidas">
+    <img src="guarana-2l.jpeg">
+    <h3>Guaraná Antártica 2L</h3>
+    <p>Guaraná Antártica 2 litros.</p>
+    <strong>R$ 13,00</strong>
+    <button onclick="adicionarAoCarrinho(25)">Adicionar</button>
+  </div>
+
 </section>
 
 <!-- MODAL PRODUTO -->
-<div id="modal-produto" class="modal" onclick="fecharModalFora(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="fecharModal()">&times;</span>
-        <img id="modal-imagem" class="modal-imagem">
-        <h2 id="modal-nome"></h2>
-        <p id="modal-descricao"></p>
+<div id="modal-produto" class="modal" onclick="fecharModalFora(event,'modal-produto')">
+  <div class="modal-content">
+    <img id="modal-imagem">
+    <h3 id="modal-nome"></h3>
+    <p id="modal-descricao"></p>
+    <strong id="modal-preco"></strong>
 
-        <div id="selecao-queijo" style="display:none">
-            <h4>🧀 Escolha o queijo</h4>
-            <button onclick="selecionarQueijo('mussarela')">Mussarela</button>
-            <button onclick="selecionarQueijo('cheddar')">Cheddar</button>
-            <button onclick="selecionarQueijo('catupiry')">Catupiry</button>
-        </div>
-
-        <div class="quantidade">
-            <button onclick="alterarQtd(-1)">-</button>
-            <span id="qtd">1</span>
-            <button onclick="alterarQtd(1)">+</button>
-        </div>
-
-        <button class="btn-adicionar-pedido" onclick="adicionarAoCarrinho()">
-            🛒 Adicionar Pedido
-        </button>
+    <div id="selecao-queijo-batata">
+      <p>Escolha o queijo:</p>
+      <button class="btn-queijo" onclick="selecionarQueijo(this,'Cheddar')">Cheddar</button>
+      <button class="btn-queijo" onclick="selecionarQueijo(this,'Mussarela')">Mussarela</button>
+      <button class="btn-queijo" onclick="selecionarQueijo(this,'Catupiry')">Catupiry</button>
     </div>
-</div>
 
-<!-- MODAL CARRINHO -->
-<div id="modal-carrinho" class="modal" onclick="fecharCarrinho(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <h2>🛒 Carrinho</h2>
-        <div id="lista-carrinho"></div>
-        <strong>Total: R$ <span id="total">0</span></strong>
+    <div class="qtd">
+      <button onclick="decrementarQuantidade()">-</button>
+      <span id="quantidade">1</span>
+      <button onclick="incrementarQuantidade()">+</button>
     </div>
+
+    <button id="btn-pedido-modal">Adicionar Pedido</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
 
