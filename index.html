@@ -3,538 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOOD BURGUER - Hamburgueria Artesanal</title>
-    <style>
-        /* CSS DE EMERGÊNCIA */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html, body { width: 100%; overflow-x: hidden; background: #0A0A0A; color: white; }
-        .container { width: 100%; padding: 0 15px; }
-        button, .btn { min-height: 44px; cursor: pointer; }
-    </style>
-    <link rel="stylesheet" href="./style.css">
+    <title>GOOD BURGUER</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">
-                <div class="logo-area">
-                    <img src="logo2 - Copia.png" alt="GOOD BURGUER" class="logo-img">
-                </div>
-                <h1>GOOD BURGUER</h1>
-            </div>
-            
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            
-            <nav class="menu" id="main-menu">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#cardapio">Cardápio</a></li>
-                    <li><a href="#promocoes">Promoções</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-actions">
-                <button class="btn btn-pedido" onclick="abrirCarrinho()">
-                    🛒 Carrinho (<span id="contador-carrinho">0</span>)
-                </button>
-            </div>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <img src="logo2.png" class="logo-img">
+            <h1>GOOD BURGUER</h1>
         </div>
-    </header>
+        <button class="menu-toggle">☰</button>
+        <button class="btn-pedido" onclick="abrirCarrinho()">
+            🛒 Carrinho (<span id="contador-carrinho">0</span>)
+        </button>
+    </div>
+</header>
 
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Mais que uma Mordida, Uma História!</h1>
+<section class="hero">
+    <h1 class="hero-title">Mais que uma Mordida, Uma História!</h1>
+</section>
 
-                <div class="hero-buttons">
-                    <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
-                    <a href="#cardapio" class="btn btn-secondary">Fazer Pedido</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="combo-familia.jpeg" alt="Hamburguer Artesanal" class="burger-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMkQyRDJEIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmaWxsPSIjRkZGIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7imYLvuI/wn5G9PC90ZXh0Pgo8L3N2Zz4K'">
-            </div>
-        </div>
-    </section>
+<section class="cardapio">
+    <h2>🍹 Bebidas</h2>
 
-<!-- CARDÁPIO -->
-<section class="cardapio" id="cardapio">
-    <div class="container">
-        <h2 class="section-title">🍔 Nosso Cardápio</h2>
-        <p class="section-subtitle">Todos os nossos produtos são 100% artesanais!</p>
-
-        <div class="filtros-cardapio">
-            <button class="filtro-btn active" onclick="filtrarCategoria('todos')">Todos</button>
-            <button class="filtro-btn" onclick="filtrarCategoria('smash')">Smash Burgers</button>
-            <button class="filtro-btn" onclick="filtrarCategoria('gb')">GB Artesanal</button>
-            <button class="filtro-btn" onclick="filtrarCategoria('tradicional')">Tradicional</button>
-            <button class="filtro-btn" onclick="filtrarCategoria('combos')">Combos</button>
-            <button class="filtro-btn" onclick="filtrarCategoria('bebidas')">Bebidas</button>
-        </div>
-
-        <!-- CARDÁPIO COMPLETO COM IMAGENS -->
-        <div class="grid-cardapio" id="grid-cardapio">
-            
-            <!-- SMASH BURGERS -->
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-simples.jpeg" alt="Smash Simples" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Simples</h3>
-                    <p class="produto-descricao">Pão, carne de 90g, cheddar cremoso e maionese.</p>
-                    <div class="produto-preco">R$ 21,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(1)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-cheddar.jpeg" alt="Smash Cheddar" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Cheddar</h3>
-                    <p class="produto-descricao">Pão, carne de 90g, bacon, cheddar cremoso, alface, tomate e maionese.</p>
-                    <div class="produto-preco">R$ 28,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(2)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-catupiry.jpeg" alt="Smash Catupiry" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Catupiry</h3>
-                    <p class="produto-descricao">Pão, carne de 90g, bacon, catupiry cremoso, alface, tomate e maionese.</p>
-                    <div class="produto-preco">R$ 28,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(3)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-salada.jpeg" alt="Smash Salada" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Salada</h3>
-                    <p class="produto-descricao">Pão, carne de 90g, cheddar cremoso, calabresa, maionese, alface e tomate.</p>
-                    <div class="produto-preco">R$ 23,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(4)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-duplo.jpeg" alt="Smash Duplo" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Duplo</h3>
-                    <p class="produto-descricao">Pão, duas carne de 90g, cheddar cremoso, bacon e maionese.</p>
-                    <div class="produto-preco">R$ 35,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(5)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-triplo.jpeg" alt="Smash Triplo" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Triplo</h3>
-                    <p class="produto-descricao">Pão, três carnes de 90g, bacon, cheddar cremoso e maionese.</p>
-                    <div class="produto-preco">R$ 40,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(6)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="smash">
-                <img src="smash-duplo-catupiry.jpeg" alt="Smash Duplo Catupiry" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Smash Duplo Catupiry</h3>
-                    <p class="produto-descricao">Pão, duas carne de 90g, catupiry cremoso, bacon e maionese.</p>
-                    <div class="produto-preco">R$ 35,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(7)">Adicionar</button>
-                </div>
-            </div>
-            
-            <!-- GB ARTESANAL -->
-            <div class="produto-card" data-categoria="gb">
-                <img src="kids.jpeg" alt="GB Kids" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">GB Kids</h3>
-                    <p class="produto-descricao">Pão, carne de 150g, cheddar cremoso e maionese. Acompanha batata frita P</p>
-                    <div class="produto-preco">R$ 28,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(8)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="gb">
-                <img src="gb-salada.jpeg" alt="GB Salada" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">GB Salada</h3>
-                    <p class="produto-descricao">Pão, carne de 150g, calabresa, cheddar cremoso, maionese, alface, tomate. Acompanha batata frita P</p>
-                    <div class="produto-preco">R$ 32,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(9)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="gb">
-                <img src="gb-bacon.jpeg" alt="GB Bacon" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">GB Bacon</h3>
-                    <p class="produto-descricao">Pão, carne de 150g, bacon, ovo, cheddar e maionese. Acompanha batata frita P</p>
-                    <div class="produto-preco">R$ 34,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(10)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="gb">
-                <img src="gb-catupiry.jpeg" alt="GB Catupiry" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">GB Catupiry</h3>
-                    <p class="produto-descricao">Pão, carne de 150g, bacon, Catupiry, alface, tomate e maionese. Acompanha batata frita P</p>
-                    <div class="produto-preco">R$ 33,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(11)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="gb">
-                <img src="gb-duplo.jpeg" alt="GB Duplo" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">GB Duplo</h3>
-                    <p class="produto-descricao">Pão, duas carne de 150g, cheddar cremoso e maionese. Acompanha batata frita P</p>
-                    <div class="produto-preco">R$ 39,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(12)">Adicionar</button>
-                </div>
-            </div>
-            
-            <!-- TRADICIONAL -->
-            <div class="produto-card" data-categoria="tradicional">
-                <img src="x-egg.jpeg" alt="X-Egg" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">X-Egg</h3>
-                    <p class="produto-descricao">Pão, hambúrguer de boi 90g, presunto, mussarela, ovo, barbecue, maionese e ketchup.</p>
-                    <div class="produto-preco">R$ 18,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(13)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="tradicional">
-                <img src="x-salada.jpeg" alt="X-Salada" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">X-Salada</h3>
-                    <p class="produto-descricao">Pão, hambúrguer de boi 90g, presunto, mussarela, ovo, calabresa, barbecue, maionese, ketchup, alface e tomate.</p>
-                    <div class="produto-preco">R$ 23,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(14)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="tradicional">
-                <img src="x-bacon.jpeg" alt="X-Bacon" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">X-Bacon</h3>
-                    <p class="produto-descricao">Pão, hamburguer de boi 90g, presunto, mussarela, ovo, bacon, barbecue, maionese e ketchup.</p>
-                    <div class="produto-preco">R$ 23,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(15)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="tradicional">
-                <img src="x-tudo.jpeg" alt="X-Tudão" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">X-Tudão</h3>
-                    <p class="produto-descricao">Pão, duas hambúrguer de boi 90g, presunto, mussarela, ovo, bacon, calabresa, alface, tomate, barbecue, maionese e ketchup.</p>
-                    <div class="produto-preco">R$ 28,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(16)">Adicionar</button>
-                </div>
-            </div>
-            
-            <!-- COMBOS -->
-            <div class="produto-card" data-categoria="combos">
-                <img src="combo-casal.jpeg" alt="Combo Casal" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Combo Casal</h3>
-                    <p class="produto-descricao">2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.</p>
-                    <div class="produto-preco">R$ 90,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(17)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="combos">
-                <img src="combo-casal-frango.jpeg" alt="Combo Casal com Frango" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Combo Casal com Frango</h3>
-                    <p class="produto-descricao">2 deliciosos Smash cheddar + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.</p>
-                    <div class="produto-preco">R$ 110,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(18)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="combos">
-                <img src="combo-1.jpeg" alt="Combo 1 Artesanal" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Combo 1 Artesanal</h3>
-                    <p class="produto-descricao">2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.</p>
-                    <div class="produto-preco">R$ 77,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(19)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="combos">
-                <img src="combo-2.jpeg" alt="Combo 2 Artesanal" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Combo 2 Artesanal</h3>
-                    <p class="produto-descricao">2 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.</p>
-                    <div class="produto-preco">R$ 97,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(20)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="combos">
-                <img src="combo-3.jpeg" alt="Combo 3 Artesanal" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Combo 3 Artesanal</h3>
-                    <p class="produto-descricao">4 smash simples + porção de batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa e frango empanado.</p>
-                    <div class="produto-preco">R$ 139,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(21)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="combos">
-                <img src="monte-sua-batata.jpeg" alt="Porção de Batata" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Porção de Batata</h3>
-                    <p class="produto-descricao">Batata frita, (cheddar, catupiry ou mussarela), bacon picado e calabresa.</p>
-                    <div class="produto-preco">R$ 40,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(22)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="combos">
-                <img src="porcao-batata-frango.jpeg" alt="Porção de Batata com Frango" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Porção de Batata com Frango</h3>
-                    <p class="produto-descricao">Batata frita, (cheddar, catupiry ou mussarela), bacon e calabresa + frango empanado.</p>
-                    <div class="produto-preco">R$ 60,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(23)">Adicionar</button>
-                </div>
-            </div>
-            
-            <!-- BEBIDAS -->
-            <div class="produto-card" data-categoria="bebidas">
-                <img src="mate-couro.jpeg" alt="Mate Couro 1L" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Mate Couro 1L</h3>
-                    <p class="produto-descricao">Sabor guaraná 1 litro.</p>
-                    <div class="produto-preco">R$ 7,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(24)">Adicionar</button>
-                </div>
-            </div>
-
-            <div class="produto-card" data-categoria="bebidas">
-                <img src="coca-cola-2l.jpeg" alt="Coca-Cola 2L" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Coca-Cola 2L</h3>
-                    <p class="produto-descricao">Coca-Cola 2 litros.</p>
-                    <div class="produto-preco">R$ 15,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(26)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="bebidas">
-                <img src="coca-lata.jpeg" alt="Coca-Cola Lata" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Coca-Cola Lata</h3>
-                    <p class="produto-descricao">Coca-Cola lata 350ml.</p>
-                    <div class="produto-preco">R$ 5,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(27)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="bebidas">
-                <img src="guarana-lata.jpeg" alt="Guaraná Antártica Lata" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Guaraná Antártica Lata</h3>
-                    <p class="produto-descricao">Guaraná Antártica lata 350ml.</p>
-                    <div class="produto-preco">R$ 5,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(28)">Adicionar</button>
-                </div>
-            </div>
-            
-            <div class="produto-card" data-categoria="bebidas">
-                <img src="agua.jpeg" alt="Água Mineral" class="produto-img">
-                <div class="produto-info">
-                    <h3 class="produto-nome">Água Mineral</h3>
-                    <p class="produto-descricao">Água mineral sem gás.</p>
-                    <div class="produto-preco">R$ 3,00</div>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho(29)">Adicionar</button>
-                </div>
-            </div>
-            
-        </div>
+    <!-- GUARANÁ 2L -->
+    <div class="produto-card">
+        <img src="guarana-2l.jpeg" class="produto-img">
+        <h3>Guaraná Antártica 2L</h3>
+        <p>Guaraná Antártica 2 litros.</p>
+        <span>R$ 13,00</span>
+        <button onclick="abrirModalProduto(25)">Adicionar</button>
     </div>
 </section>
 
-    <!-- SOBRE -->
-    <section class="sobre" id="sobre">
-        <div class="container sobre-container">
-            <div class="sobre-image">
-                <img src="logo-1.png" alt="GOOD BURGUER" class="sobre-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMkQyRDJEIi8+Cjx0ZXh0IHg9IjI1MCIgeT0iMTUwIiBmaWxsPSIjRkZGIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7imYLvuI/wn5G9PC90ZXh0Pgo8L3N2Zz4K'">
-            </div>
-            <div class="sobre-content">
-                <h2 class="section-title">Nossa História: Paixão pelo GOOD BURGUER</h2>
-                <p class="sobre-text">
-                    No <strong>GOOD BURGUER</strong>, acreditamos que a comida de verdade deve nos trazer conforto e alegria.
-                    Nascemos do desejo de resgatar o <strong>verdadeiro sabor da grelha</strong> em um hambúrguer 100% artesanal.
-                </p>
-                <p class="sobre-text">
-                    Nossos ingredientes são <strong>selecionados com rigor</strong>: carne fresca moída diariamente, pães macios feitos por padeiros locais e molhos exclusivos, criados com receitas de família.
-                </p>
-                <p class="sobre-text destaque-missao">
-                    <strong>Nossa Missão:</strong> Servir o melhor hambúrguer artesanal, com paixão em cada detalhe, e proporcionar uma experiência que você só encontra aqui, com gosto de feito em casa.
-                </p>
-                <a href="#cardapio" class="btn btn-primary btn-sobre">Ver Cardápio Completo</a>
-            </div>
+<!-- MODAL PRODUTO -->
+<div id="modal-produto" class="modal" onclick="fecharModalFora(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="fecharModal()">&times;</span>
+        <img id="modal-imagem" class="modal-imagem">
+        <h2 id="modal-nome"></h2>
+        <p id="modal-descricao"></p>
+
+        <div id="selecao-queijo" style="display:none">
+            <h4>🧀 Escolha o queijo</h4>
+            <button onclick="selecionarQueijo('mussarela')">Mussarela</button>
+            <button onclick="selecionarQueijo('cheddar')">Cheddar</button>
+            <button onclick="selecionarQueijo('catupiry')">Catupiry</button>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer" id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>GOOD BURGUER</h3>
-                    <p>Hamburgueria Artesanal</p>
-                    <p>🍔 O sabor do que é bom de verdade</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p>🕒 Horário: 19h às 23h</p>
-                    <p>Quarta a Domingo</p>
-                    <p></p>
-                </div>
-                <div class="footer-section">
-                    <h4>Redes Sociais</h4>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/goodburgueerr/" target="_blank" class="social-icon">📷 Instagram</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Formas de Pagamento</h4>
-                    <p>💳 Cartão • 📱 PIX • 💵 Dinheiro</p>
-                    <div class="pagamento-info">
-                        <p>🛵 Delivery Disponível</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 GOOD BURGUER - Todos os direitos reservados</p>
-            </div>
+        <div class="quantidade">
+            <button onclick="alterarQtd(-1)">-</button>
+            <span id="qtd">1</span>
+            <button onclick="alterarQtd(1)">+</button>
         </div>
-    </footer>
 
-    <!-- MODAL PRODUTO -->
-    <div id="modal-produto" class="modal" onclick="fecharModalFora(event, 'modal-produto')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-modal" onclick="fecharModal('modal-produto')">&times;</span>
-            <div class="modal-body">
-                <img id="modal-imagem" src="" alt="" class="modal-imagem">
-                <h2 id="modal-nome" class="modal-nome"></h2>
-                <p id="modal-descricao" class="modal-descricao"></p>
-                
-                <div id="selecao-queijo-batata" class="selecao-queijo-batata" style="display: none;">
-                    <h5>🧀 Escolha o queijo:</h5>
-                    <div class="botoes-queijo">
-                        <button class="btn-queijo" onclick="selecionarQueijo(this, 'mussarela')">Mussarela</button>
-                        <button class="btn-queijo" onclick="selecionarQueijo(this, 'cheddar')">Cheddar</button>
-                        <button class="btn-queijo" onclick="selecionarQueijo(this, 'catupiry')">Catupiry</button>
-                    </div>
-                </div>
-
-                <div class="modal-preco-container">
-                    <div class="modal-preco" id="modal-preco">R$ 0,00</div>
-                    <div class="quantidade-container">
-                        <button class="btn-quantidade" onclick="decrementarQuantidade()">-</button>
-                        <span id="quantidade" class="quantidade">1</span>
-                        <button class="btn-quantidade" onclick="incrementarQuantidade()">+</button>
-                    </div>
-                </div>
-
-                <div class="observacao-produto">
-                    <h5>📝 Observações:</h5>
-                    <textarea id="observacao-produto" class="input-observacao" placeholder="Sem cebola, ponto da carne, maionese à parte..." oninput="atualizarContadorCaracteres()"></textarea>
-                    <div class="contador-caracteres">
-                        <span id="contador-caracteres">0</span>/200 caracteres
-                    </div>
-                </div>
-
-                <button id="btn-pedido-modal" class="btn-adicionar-pedido" onclick="adicionarAoCarrinho()">
-                    🛒 ADICIONAR PEDIDO AO CARRINHO
-                </button>
-            </div>
-        </div>
+        <button class="btn-adicionar-pedido" onclick="adicionarAoCarrinho()">
+            🛒 Adicionar Pedido
+        </button>
     </div>
+</div>
 
-    <!-- MODAL CARRINHO -->
-    <div id="modal-carrinho" class="modal carrinho-modal" onclick="fecharModalFora(event, 'modal-carrinho')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-carrinho" onclick="fecharModal('modal-carrinho')">&times;</span>
-            <h2>🛒 Seu Carrinho</h2>
-            
-            <div id="itens-carrinho" class="itens-carrinho"></div>
-            
-            <div class="carrinho-total">
-                <div class="total-item">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">R$ 0,00</span>
-                </div>
-                <div class="total-item">
-                    <span>Taxa de Entrega:</span>
-                    <span id="taxa-entrega">R$ 5,00</span>
-                </div>
-                <div class="total-item total-geral">
-                    <span>Total:</span>
-                    <span id="total-geral">R$ 0,00</span>
-                </div>
-            </div>
-            
-            <div class="form-entrega">
-                <h3>📋 Informações de Entrega</h3>
-                <div class="form-grid">
-                    <input type="text" id="nome-cliente" class="form-input" placeholder="Seu nome completo *" required>
-                    <input type="tel" id="telefone" class="form-input" placeholder="Telefone com DDD *" required>
-                    <input type="text" id="endereco" class="form-input" placeholder="Endereço completo *" required>
-                    <input type="text" id="cidade" class="form-input" placeholder="Cidade *" required>
-                </div>
-                
-                <div class="forma-pagamento">
-                    <h3>💳 Forma de Pagamento</h3>
-                    <div class="opcoes-pagamento">
-                        <label class="opcao-pagamento" onclick="selecionarFormaPagamento('cartao')">
-                            <input type="radio" name="forma-pagamento" value="cartao">
-                            <span class="checkmark"></span>
-                            <span class="opcao-texto">💳 Cartão</span>
-                        </label>
-                        <label class="opcao-pagamento" onclick="selecionarFormaPagamento('dinheiro')">
-                            <input type="radio" name="forma-pagamento" value="dinheiro">
-                            <span class="checkmark"></span>
-                            <span class="opcao-texto">💵 Dinheiro</span>
-                        </label>
-                        <label class="opcao-pagamento" onclick="selecionarFormaPagamento('pix')">
-                            <input type="radio" name="forma-pagamento" value="pix" checked>
-                            <span class="checkmark"></span>
-                            <span class="opcao-texto">📱 PIX</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="botoes-finalizacao">
-                <button class="btn-finalizar btn-pix" onclick="finalizarComPix()">
-                    📱 Pagar com PIX
-                </button>
-                <button class="btn-finalizar btn-whatsapp" onclick="finalizarPedidoWhatsApp()">
-                    💬 Finalizar no WhatsApp
-                </button>
-            </div>
-        </div>
+<!-- MODAL CARRINHO -->
+<div id="modal-carrinho" class="modal" onclick="fecharCarrinho(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2>🛒 Carrinho</h2>
+        <div id="lista-carrinho"></div>
+        <strong>Total: R$ <span id="total">0</span></strong>
     </div>
+</div>
 
-    <script src="./script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
+
 
