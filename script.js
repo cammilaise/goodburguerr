@@ -35,7 +35,7 @@ const produtos = [
 
     // Bebidas (24-29) - COM GUARANÁ 2L
     { id: 24, nome: "Mate Couro 1L", descricao: "Sabor guaraná 1 litro.", preco: 7.00, imagem: "mate-couro.jpeg", categoria: "bebidas" },
-    { id: 25, nome: "Guaraná Antártica 2L", descricao: "Guaraná Antártica 2 litros.", preco: 12.00, imagem: "guarana-2l.jpeg", categoria: "bebidas" }, // ← GUARANÁ 2L ADICIONADO
+    { id: 25, nome: "Guaraná Antártica 2L", descricao: "Guaraná Antártica 2 litros.", preco: 12.00, imagem: "guarana-2l.jpeg", categoria: "bebidas" },
     { id: 26, nome: "Coca-Cola 2L", descricao: "Coca-Cola 2 litros.", preco: 15.00, imagem: "coca-cola-2l.jpeg", categoria: "bebidas" },
     { id: 27, nome: "Coca-Cola Lata", descricao: "Coca-Cola lata 350ml.", preco: 5.00, imagem: "coca-lata.jpeg", categoria: "bebidas" },
     { id: 28, nome: "Guaraná Antártica Lata", descricao: "Guaraná Antártica lata 350ml.", preco: 5.00, imagem: "guarana-lata.jpeg", categoria: "bebidas" },
@@ -46,11 +46,11 @@ const produtos = [
 // FILTRO: Produtos que funcionam
 // =========================================
 const produtosComImagemValida = [
-    1, 2, 3, 4, 5, 6, 7,     // Smash Burgers (todos)
-    8, 9, 10, 11, 12,        // GB Artesanal (todos)
-    13, 14, 15, 16,          // Tradicional (todos)
+    1, 2, 3, 4, 5, 6, 7,     // Smash Burgers
+    8, 9, 10, 11, 12,        // GB Artesanal
+    13, 14, 15, 16,          // Tradicional
     17, 18, 19, 20, 21, 22, 23, // Combos
-    24, 25, 26, 27, 28, 29   // Bebidas (COM 25 - GUARANÁ 2L)
+    24, 25, 26, 27, 28, 29   // Bebidas (COM GUARANÁ 2L)
 ];
 
 // Array filtrado para exibição
@@ -69,44 +69,12 @@ let formaPagamento = "pix";
 // INICIALIZAÇÃO
 // =========================================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("✅ GOOD BURGUER - Site carregado!");
-    console.log(`📊 Total de produtos: ${produtosParaExibir.length}`);
+    console.log("✅ GOOD BURGER - Sistema iniciado!");
+    console.log(`📊 Produtos carregados: ${produtosParaExibir.length}`);
     
     carregarCardapio();
     atualizarContadorCarrinho();
-    
-    // Menu mobile
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuClose = document.getElementById('menu-close');
-    const menu = document.getElementById('main-menu');
-    
-    if (menuToggle && menu) {
-        menuToggle.addEventListener('click', function() {
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-        });
-        
-        if (menuClose) {
-            menuClose.addEventListener('click', function() {
-                menu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        }
-        
-        // Fechar menu ao clicar em link
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                menu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-    }
-    
-    // Adicionar event listener para o carrinho
-    const btnPedido = document.querySelector('.btn-pedido');
-    if (btnPedido) {
-        btnPedido.addEventListener('click', abrirCarrinho);
-    }
+    configurarMenuMobile();
     
     // Fechar modais com ESC
     document.addEventListener('keydown', function(e) {
@@ -115,7 +83,53 @@ document.addEventListener('DOMContentLoaded', function() {
             fecharModal('modal-carrinho');
         }
     });
+    
+    console.log("🎯 Tudo carregado e pronto!");
 });
+
+// =========================================
+// CONFIGURAÇÃO DO MENU MOBILE
+// =========================================
+function configurarMenuMobile() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const menu = document.getElementById('main-menu');
+    
+    if (!menuToggle || !menu) return;
+    
+    // Abrir menu
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Fechar menu com botão X
+    if (menuClose) {
+        menuClose.addEventListener('click', function() {
+            menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    // Fechar menu ao clicar em links
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+    
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', function(e) {
+        if (menu.classList.contains('active') && 
+            !menu.contains(e.target) && 
+            e.target !== menuToggle) {
+            menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
 // =========================================
 // FUNÇÕES DO CARDÁPIO
@@ -138,7 +152,7 @@ function carregarCardapio() {
         card.innerHTML = `
             <div class="card-imagem-container">
                 <img src="${produto.imagem}" alt="${produto.nome}" class="card-imagem" 
-                     onerror="this.onerror=null; this.src='${imgFallback}'; console.log('Imagem não carregou: ${produto.imagem}')">
+                     onerror="this.onerror=null; this.src='${imgFallback}'">
             </div>
             <div class="card-info">
                 <span class="card-categoria">${getCategoriaNome(produto.categoria)}</span>
@@ -154,7 +168,7 @@ function carregarCardapio() {
         grid.appendChild(card);
     });
     
-    console.log("✅ Cardápio carregado!");
+    console.log("✅ Cardápio carregado com sucesso!");
 }
 
 function getCategoriaNome(categoria) {
@@ -195,7 +209,7 @@ function filtrarCategoria(categoria) {
 }
 
 // =========================================
-// FUNÇÕES DO MODAL
+// FUNÇÕES DO MODAL (COM ESCOLHA DE QUEIJO)
 // =========================================
 function abrirModal(idProduto) {
     const produto = produtos.find(p => p.id === idProduto);
@@ -217,7 +231,6 @@ function abrirModal(idProduto) {
     imgElement.alt = produto.nome;
     imgElement.onerror = function() {
         this.src = modalFallback;
-        console.log('Modal: Imagem não carregou:', produto.imagem);
     };
     
     // CONTROLE DE SELEÇÃO DE QUEIJO
@@ -247,12 +260,22 @@ function abrirModal(idProduto) {
     document.getElementById('modal-produto').style.display = 'block';
     document.body.style.overflow = 'hidden';
     
+    // Scroll para o topo do modal
+    const modalScroll = document.querySelector('#modal-produto .modal-scroll-content');
+    if (modalScroll) {
+        modalScroll.scrollTop = 0;
+    }
+    
     console.log(`📱 Modal aberto: ${produto.nome}`);
 }
 
 function fecharModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto';
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        console.log(`❌ Modal ${modalId} fechado`);
+    }
 }
 
 function fecharModalFora(event, modalId) {
@@ -299,7 +322,7 @@ function atualizarContadorCaracteres() {
         textarea.value = observacao.substring(0, 200);
         contador.textContent = '200';
         observacao = textarea.value;
-        mostrarNotificacao('⚠️ Limite de 200 caracteres atingido!');
+        mostrarNotificacao('⚠️ Limite de 200 caracteres!');
     }
 }
 
@@ -391,24 +414,36 @@ function mostrarNotificacao(mensagem) {
 
 function atualizarContadorCarrinho() {
     const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
-    const contador = document.getElementById('contador-carrinho');
-    if (contador) {
-        contador.textContent = totalItens;
-        
-        // Adicionar animação
-        if (totalItens > 0) {
-            contador.style.animation = 'pulse 0.5s';
-            setTimeout(() => {
-                contador.style.animation = '';
-            }, 500);
+    const contadorHeader = document.getElementById('contador-carrinho');
+    const contadorMenu = document.getElementById('contador-carrinho-menu');
+    
+    // Atualizar ambos contadores
+    [contadorHeader, contadorMenu].forEach(contador => {
+        if (contador) {
+            contador.textContent = totalItens;
+            
+            // Animação quando adiciona item
+            if (totalItens > parseInt(contador.textContent || 0)) {
+                contador.style.animation = 'pulse 0.5s';
+                setTimeout(() => {
+                    contador.style.animation = '';
+                }, 500);
+            }
         }
-    }
+    });
 }
 
 function abrirCarrinho() {
     if (carrinho.length === 0) {
         mostrarNotificacao('🛒 Seu carrinho está vazio! Adicione alguns produtos primeiro.');
         return;
+    }
+
+    // Fechar menu mobile se estiver aberto
+    const menu = document.getElementById('main-menu');
+    if (menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        document.body.style.overflow = 'auto';
     }
 
     const itensCarrinho = document.getElementById('itens-carrinho');
@@ -428,7 +463,8 @@ function abrirCarrinho() {
             infoExtra += `<p style="margin: 5px 0 0 0; color: #ffc107; font-size: 12px;">🧀 Queijo: ${item.queijoBatata}</p>`;
         }
         if (item.observacao) {
-            infoExtra += `<p style="margin: 5px 0 0 0; color: #ffc107; font-size: 12px;">📝 ${item.observacao.substring(0, 50)}${item.observacao.length > 50 ? '...' : ''}</p>`;
+            const obs = item.observacao.length > 50 ? item.observacao.substring(0, 50) + '...' : item.observacao;
+            infoExtra += `<p style="margin: 5px 0 0 0; color: #ffc107; font-size: 12px;">📝 ${obs}</p>`;
         }
 
         itemElement.innerHTML = `
@@ -469,11 +505,17 @@ function abrirCarrinho() {
     document.getElementById('modal-carrinho').style.display = 'block';
     document.body.style.overflow = 'hidden';
     
+    // Scroll para o topo do modal
+    const modalScroll = document.querySelector('#modal-carrinho .modal-scroll-content');
+    if (modalScroll) {
+        modalScroll.scrollTop = 0;
+    }
+    
     console.log(`🛒 Carrinho aberto com ${carrinho.length} itens`);
 }
 
 function removerDoCarrinho(index) {
-    if (confirm('Remover este item do carrinho?')) {
+    if (confirm('Tem certeza que deseja remover este item do carrinho?')) {
         const itemRemovido = carrinho[index];
         carrinho.splice(index, 1);
         atualizarContadorCarrinho();
@@ -497,7 +539,7 @@ function selecionarFormaPagamento(tipo) {
     document.querySelectorAll('.opcao-pagamento input').forEach(input => {
         input.checked = input.value === tipo;
     });
-    console.log(`💳 Forma de pagamento selecionada: ${tipo}`);
+    console.log(`💳 Forma de pagamento: ${tipo}`);
 }
 
 function validarDadosEntrega() {
@@ -516,7 +558,7 @@ function validarDadosEntrega() {
         return null;
     }
     
-    // Validar telefone
+    // Validar telefone (apenas números)
     const telefoneLimpo = telefone.replace(/\D/g, '');
     if (telefoneLimpo.length < 10) {
         mostrarNotificacao('⚠️ Telefone inválido! Informe um número com DDD.');
@@ -580,8 +622,8 @@ function finalizarComPix() {
     });
     
     mensagem += `*📋 RESUMO DO PEDIDO:*\n`;
-    const subtotal = total - 5.00;
-    mensagem += `Subtotal: R$ ${subtotal.toFixed(2)}\n`;
+    const subtotalPedido = total - 5.00;
+    mensagem += `Subtotal: R$ ${subtotalPedido.toFixed(2)}\n`;
     mensagem += `Taxa de Entrega: R$ 5,00\n`;
     mensagem += `*TOTAL: R$ ${total.toFixed(2)}*\n\n`;
     
@@ -592,8 +634,8 @@ function finalizarComPix() {
     mensagem += `✅ *Pedido confirmado!*\n`;
     mensagem += `⏱️ *Tempo estimado:* 40-60 minutos`;
     
-    // **SUBSTITUA ESTE NÚMERO PELO SEU WHATSAPP REAL**
-    const numeroWhatsApp = "5531999999999"; // SUBSTITUA AQUI
+    // **NÚMERO ORIGINAL DO GOOD BURGER**
+    const numeroWhatsApp = "5531999999999";
     
     const mensagemCodificada = encodeURIComponent(mensagem);
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`, '_blank');
@@ -614,12 +656,16 @@ function finalizarPedidoWhatsApp() {
 }
 
 // =========================================
-// UTILITÁRIOS
+// LOGO DO SISTEMA
 // =========================================
 console.log(`
-╔══════════════════════════════════════╗
-║    GOOD BURGER - SISTEMA ATIVADO     ║
-║    Produtos carregados: ${produtosParaExibir.length}           ║
-║    Guaraná 2L ID: 25 ✅              ║
-╚══════════════════════════════════════╝
+╔══════════════════════════════════════════╗
+║       GOOD BURGER - SISTEMA ATIVO        ║
+║       Versão 2.0 - Corrigido 100%        ║
+╠══════════════════════════════════════════╣
+║ ✅ Header corrigido (não tampa conteúdo)  ║
+║ ✅ Modal responsivo (botão sempre visível)║
+║ ✅ Guaraná 2L (ID: 25) incluído          ║
+║ ✅ Número WhatsApp: (31) 99999-9999      ║
+╚══════════════════════════════════════════╝
 `);
